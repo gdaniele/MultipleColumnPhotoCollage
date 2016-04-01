@@ -1,0 +1,10 @@
+framework module MultipleColumnPhotoCollage {
+  umbrella header "MultipleColumnPhotoCollage.h"
+
+  export *
+  module * { export * }
+}
+
+module MultipleColumnPhotoCollage.Swift {
+    header "MultipleColumnPhotoCollage-Swift.h"
+}
