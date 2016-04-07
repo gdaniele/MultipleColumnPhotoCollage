@@ -8,6 +8,14 @@ xcode_project: MultipleColumnPhotoCollage/MultipleColumnPhotoCollage.xcodeproj
 xcode_scheme: MultipleColumnPhotoCollage
 osx_image: xcode7.3
 xcode_sdk: iphonesimulator9.3
-
+env:
+  global:
+    - FRAMEWORK_NAME=MultipleColumnPhotoCollage
+before_install:
+  - brew update
+  - brew install carthage
+before_deploy:
+  - carthage build --no-skip-current
+  - carthage archive $FRAMEWORK_NAME
 script:
   - xcodebuild test -project MultipleColumnPhotoCollage/MultipleColumnPhotoCollage.xcodeproj -scheme MultipleColumnPhotoCollage -destination "platform=iOS Simulator,name=iPhone 6s"
